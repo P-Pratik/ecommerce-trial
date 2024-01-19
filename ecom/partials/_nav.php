@@ -14,7 +14,26 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
 
-<link rel="stylesheet" href="navpanel.css">
+<style>
+    
+        .navbar {
+            padding: 15px;
+        }
+
+        .user{
+          border: #C3C4C5 2px solid;
+          border-radius: 8px;
+          padding: 8px;
+        }
+
+        img {
+            margin-right: 8px;
+        }
+
+        h5 {
+            font-size: 28px;
+        }
+</style>
 </head>
 
 <body>
