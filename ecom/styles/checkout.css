@@ -1,0 +1,50 @@
+
+body {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    background-color: #313745;
+    margin: 0;
+    height: 100vh;
+}
+
+.container2 {
+    width: 30%;
+    margin: 20px;
+    background-color: #fff;
+    color: #313745;
+    padding: 30px;
+    border-radius: 8px;
+  }
+
+  .container1 {
+    width: 50%;
+    margin: 20px;
+    background-color: transparent; /* Set background color to transparent */
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative; /* Add position relative for positioning pseudo-element */
+  }
+  
+  .container1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #1b1b1b9d 0%, #1b1b1b 100%);
+    z-index: -1; /* Place the pseudo-element behind the content */
+    border-radius: 8px; /* Match the border-radius of the container */
+  }
+
+  .btn-primary{
+    width: 40%;
+  }
+  
+  .btn-outline-warning{
+    width: 440px;
+  }
+  option{
+    background-color: #fff;
+  }
