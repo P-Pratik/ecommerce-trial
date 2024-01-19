@@ -14,65 +14,7 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
         
     <title>Welcome</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-        body {
-            color: #fff;
-            font-family: Arial, sans-serif;
-            background-color: #313745;
-            margin: 0;
-            height: 100vh;
-        }
-        .item-img{
-            width: 100%;
-            height: 60%;
-            border-radius: 0;
-            object-fit: cover;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #fff;
-            font-size: 50px;
-            font-weight: bold;
-        }
-        h6{
-            font-size: 18px;
-            font-weight: bold;
-            padding: 15px;
-        }
-        .card-container{
-            padding: 20px;
-            height: 85%;
-            margin: 15px;
-        }
-
-        .item-card{
-            background-color: #313745;
-            width: 20%;
-            margin-top: 25px;
-        }
-        .item-info{
-            background-color: #25282e;
-            height: fit-content;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        .money-text{
-            color: rgb(43, 189, 70);
-            font-weight: bold;
-            font-size: 24px;
-            padding: 10px ;
-            padding-top: 0;
-            padding-bottom: 20px;
-        }
-        .btn{
-            height: 60%;
-            font-weight: bold;
-        }
-
-    </style>  
+    <link rel="stylesheet" href="welcome.css">
 </head>
   <body>
   <?php require 'partials/_nav.php'?>
