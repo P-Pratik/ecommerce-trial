@@ -93,7 +93,7 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
                 <h6>Yamaha FSC-TA Ruby Red Acoustic Guitar</h6>
                 <div class="d-flex flex-row justify-content-start">
                     <p class="money-text">₹62,490.00</p>
-                    <button class="btn btn-success">Buy Now</button>
+                    <button class="btn btn-success">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
                 <h6>Ibanez Bass Guitar SR series Standard 6 string</h6>
                 <div class="d-flex flex-row justify-content-start">
                     <p class="money-text">₹44,390.00</p>
-                    <button class="btn btn-success">Buy Now</button>
+                    <button class="btn btn-success">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
                 <h6>Kadence Acoustic Begginers Drum Kit (5-piece) with Cymbals</h6>
                 <div class="d-flex flex-row justify-content-start">
                     <p class="money-text">₹32,620.00</p>
-                    <button class="btn btn-success">Buy Now</button>
+                    <button class="btn btn-success">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
                 <h6>Yamaha FSC-TA Ruby Red Acoustic Guitar</h6>
                 <div class="d-flex flex-row justify-content-start">
                     <p class="money-text">₹15,540.00</p>
-                    <button class="btn btn-success">Buy Now</button>
+                    <button class="btn btn-success">Add to Cart</button>
                 </div>
             </div>
         </div>
