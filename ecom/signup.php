@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
   <title>Sign Up</title>
-  <link rel="stylesheet" href="signup.css">
+  <link rel="stylesheet" href="styles/signup.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
