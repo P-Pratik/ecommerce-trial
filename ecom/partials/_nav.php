@@ -14,6 +14,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
 
+<link rel="stylesheet" href="navpanel.css">
+</head>
 <style>
     
         .navbar {
@@ -34,15 +36,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             font-size: 28px;
         }
 </style>
-</head>
-
 <body>
 
     <?php
     echo '
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/ecomweb/">
+        <a class="navbar-brand" href="/website/ecom-website/ecom/">
           <div class="d-flex flex-row justify-content-start">
             <img src="https://i.imgur.com/RV41OkU.png" height="45px">
             <div class="d-flex flex-column justify-content-end">
@@ -56,22 +56,22 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/ecomweb/welcome.php">Home</a>
+              <a class="nav-link" aria-current="page" href="/website/ecom-website/ecom/welcome.php">Home</a>
             </li>';
 
     if (!$loggedin) {
         echo '<li class="nav-item">
-              <a class="nav-link" href="/ecomweb/login.php">Login</a>
+              <a class="nav-link" href="/website/ecom-website/ecom/login.php">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/ecomweb/signup.php">Sign Up</a>
+              <a class="nav-link" href="/website/ecom-website/ecom/signup.php">Sign Up</a>
             </li>';
     }
 
     if ($loggedin) {
         echo 
         '<li class="nav-item">
-            <a class="nav-link" href="/ecomweb/logout.php">Logout</a>
+            <a class="nav-link" href="/website/ecom-website/ecom/logout.php">Logout</a>
             </li>
             </ul>
             <div class="user d-flex">
@@ -100,7 +100,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             var page = path.split("/").pop();
 
             // Select the corresponding navbar item based on the current page
-            var activeNavItem = document.querySelector('a[href="/ecomweb/' + page + '"]');
+            var activeNavItem = document.querySelector('a[href="/website/ecom-website/ecom/' + page + '"]');
 
             // Add the "active" class to the selected navbar item
             if (activeNavItem) {

@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $showError = "This Email is already Registered.";
   } else {
     if ($Passwrd == $CPasswrd) {
-      $sql = "INSERT INTO `users` (`Name`, `Email`, `Passwrd`, `dt`) VALUES ('$Name', '$Email', '$Passwrd', current_timestamp());";
+      $sql = "INSERT INTO users (`Name`, `Email`, `Passwrd`, `dt`) VALUES ('$Name', '$Email', '$Passwrd', current_timestamp());";
       $result = mysqli_query($conn, $sql);
       if ($result == true) {
         $showAlert = true;
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <h1>Sign Up</h1>
       <div class="d-flex flex-row justify-content-center">
         <!-- Sign-Up Form -->
-        <form id="Form" action="/ecomweb/signup.php" method="post">
+        <form id="Form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
           <div class="form-group">
             <label for="signupName">Full Name:</label>
             <input type="text" maxlength="50" id="Name" name="Name" required>
