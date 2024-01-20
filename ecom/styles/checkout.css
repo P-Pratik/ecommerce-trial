@@ -37,14 +37,33 @@ body {
     z-index: -1; /* Place the pseudo-element behind the content */
     border-radius: 8px; /* Match the border-radius of the container */
   }
-
   .btn-primary{
     width: 40%;
+    height: 35px;
   }
   
-  .btn-outline-warning{
-    width: 440px;
+  .payment-select-container{
+    width: 50%;
+    height: 40px;
   }
-  option{
+
+  .payment-select{
+    background-color: gray;
+    border: 0;
+    color: #fff;
+    height: 35px;
+  }
+
+  .payment-select:hover{
+    background-color: rgb(120, 120, 120);
+  }
+
+  .payment-select option{
+    background-color: #fff;
+    color: #1b1b1b;
+  }
+
+  .select-options{
     background-color: #fff;
   }
+
