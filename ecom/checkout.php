@@ -44,18 +44,20 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
                     <label for="exampleInputEmail1" class="form-label">Address Line 3 (Name of city and zip code)</label>
                     <input type="text" class="form-control" id="exampleInputEmail1">
                 </div>
-                <br><br>
+                <br>
                 <div class="d-flex flex-row justify-content-between">
-                    <div>
-                        <select class="form-select btn btn-outline-warning" aria-label="Default select example">
-                            <option selected>-- Select Payment option --</option>
+                    <div class="payment-select-container">
+                        <select class="form-select payment-select" aria-label="Default select example">
+                            <option selected>Select Payment method</option>
                             <option value="1">Cash on Delivery (CoD)</option>
                             <option value="2">Net Banking</option>
-                            <option value="3">Credit/Debit Card Payment</option>
+                            <option value="3">UPI/QR Payment</option>
+                            <option value="4">Credit/Debit Card Payment</option>
                         </select>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Place Order">
                 </div>
+                <br>
             </form>
         </div>
         <div class="container2">
