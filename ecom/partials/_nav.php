@@ -14,7 +14,6 @@ $itemcount = 0;
 if (isset($_SESSION['cart'])) {
   $itemcount = count($_SESSION['cart']);
 }
-
 ?>
 
 <head>
