@@ -1,9 +1,20 @@
 <?php
+session_start();
+
+echo '<p>' . print_r($_SESSION) . '</p>';
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   $loggedin = true;
 } else {
   $loggedin = false;
 }
+
+$itemcount = 0;
+
+if (isset($_SESSION['cart'])) {
+  $itemcount = count($_SESSION['cart']);
+}
+
 ?>
 
 <head>
@@ -32,10 +43,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     font-size: 28px;
   }
 </style>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body data-bs-theme="dark">
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/website/ecom-website/ecom/">
+      <a class="navbar-brand" href="#">
         <div class="d-flex flex-row justify-content-start">
           <img src="https://i.imgur.com/RV41OkU.png" height="45px">
           <div class="d-flex flex-column justify-content-end">
@@ -71,8 +83,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         </ul>
 
         <div class="cart me-4 p-2 px-4 d-flex">
-          <a href="/website/ecom-website/ecom/cart.php" class="text-decoration-none text-light d-flex flex-column justify-content-center carttext">
-            My Cart
+          <a href="/website/ecom-website/ecom/cart.php" class="carttext text-decoration-none text-light d-flex justify-content-center align-items-center">
+            My Cart <span class="ms-2 mt-1 badge bg-secondary d-flex justify-content-center"><?php echo $itemcount ?></span>
           </a>
         </div>
         <div class="user d-flex">
@@ -88,6 +100,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     </div>
   </nav>
 
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 <script>

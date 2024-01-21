@@ -2,16 +2,18 @@
 $login = false;
 $showError = false;
 $Name = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include("partials/_dbconnect.php");
   $Email = $_POST["Email"];
-  $Passwrd = $_POST["Passwrd"];
+  $Passwrd = $_POST["Passwrd"]; 
 
   $sql = "SELECT * FROM users WHERE Email='$Email' AND Passwrd='$Passwrd'";
   $result = mysqli_query($conn, $sql);
   $num = mysqli_num_rows($result);
 
   if ($num == 1) {
+    session_destroy();
     $login = true;
     $row = mysqli_fetch_assoc($result);
     $Name = $row['Name'];
