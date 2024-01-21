@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo '<p>' . print_r($_SESSION) . '</p>';
+// print_r($_SESSION);
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   $loggedin = true;
 } else {

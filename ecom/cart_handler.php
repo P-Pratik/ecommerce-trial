@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </script>";
         }
     }
+
     if(isset($_POST['removeItem'])){
         foreach($_SESSION['cart'] as $key => $value){
             if($value['itemName'] == $_POST['itemName']){
@@ -37,6 +38,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 window.location = 'cart.php';
                 </script>";
             }
+        }
+    }
+
+    if (isset($_POST['updateQuantity'])) {
+        $itemName = $_POST['itemName'];
+        $newQuantity = $_POST['newQuantity'];
+        
+        foreach($_SESSION['cart'] as $key => $value){
+            if($value['itemName'] == $itemName){
+                $_SESSION['cart'][$key]['quantity'] = $newQuantity;
+                // echo "Quantity updated successfully";
+            }
+
         }
     }
 }
