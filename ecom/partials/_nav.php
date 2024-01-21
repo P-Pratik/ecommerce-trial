@@ -8,9 +8,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 } else {
   $loggedin = false;
 }
-
 $itemcount = 0;
-
 if (isset($_SESSION['cart'])) {
   $itemcount = count($_SESSION['cart']);
 }
