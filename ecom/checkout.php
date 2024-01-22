@@ -24,6 +24,8 @@ if (isset($_SESSION['cart'])) {
 
 <body>
     <br><br>
+
+    <h1 class="display-4 text-center mb-5"> Checkout </h1>
     <div class='container-fluid row gx-5 '>
         <div class="container col-8 p-5">
 

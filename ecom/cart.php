@@ -96,6 +96,7 @@ document.addEventListener('change', () => {
 
 calcCost();
 </script>
+
 </body>
 
 </html> 

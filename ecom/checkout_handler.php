@@ -21,12 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($result){
         $_SESSION['cart'] = array();
         echo "<script>alert('Order Placed Successfully');
-        window.location = 'welcome.php';
+        window.location = 'thank_you.php';
         </script>";
     }
     else{
         echo "<script>alert('Order Placed Failed');
-        window.location = 'welcome.php';
+        window.location = 'cart.php';
         </script>";
     }
 }
