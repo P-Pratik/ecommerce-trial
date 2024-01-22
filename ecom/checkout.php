@@ -14,14 +14,14 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
         
     <title>Welcome</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/checkout.css"> 
+    <link rel="stylesheet" href="styles/checkout.css?v=<?php echo time(); ?>"> 
 </head>
   <body>
   <?php require 'partials/_nav.php'?>
   <br><br>
     <div class='card-container d-flex flex-row justify-content-around'>
         <div class="container1">
-            <form>
+            <form action="welcome.php">
                 <div class="row">
                     <div class="col mb-3">
                         <label for="Name" class="form-label">Name</label>
@@ -56,16 +56,10 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
                         </select>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Place Order">
+                    <?php $_SESSION['order_placed'] = true; ?>
                 </div>
                 <br>
             </form>
-        </div>
-        <div class="container2">
-            [insert item pic here]
-            <br><br>
-            [insert item info here]
-            <br>
-            [insert item price here]
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
