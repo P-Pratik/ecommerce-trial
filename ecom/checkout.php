@@ -27,7 +27,7 @@ if (isset($_SESSION['cart'])) {
 
     <h1 class="display-4 text-center mb-5"> Checkout </h1>
 
-    <div class='container-fluid row row-cols-1 gx-5 p-5 m-0'>
+    <div class='container-fluid row row-cols-1 gx-5 py-5 m-0'>
         <div class="container col col-lg-8 p-5">
             <form action="checkout_handler.php" method="post">
                 <div class="row row-cols-1 row-cols-md-2">
