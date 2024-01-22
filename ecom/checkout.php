@@ -26,11 +26,10 @@ if (isset($_SESSION['cart'])) {
     <br><br>
 
     <h1 class="display-4 text-center mb-5"> Checkout </h1>
-    <div class='container-fluid row gx-5 '>
-        <div class="container col-8 p-5">
 
+    <div class='container-fluid row row-cols-1 gx-5 p-5 m-0'>
+        <div class="container col col-lg-8 p-5">
             <form action="checkout_handler.php" method="post">
-
                 <div class="row row-cols-1 row-cols-md-2">
                     <div class="col mb-3">
                         <label for="address" class="form-label">Address</label>
@@ -49,29 +48,29 @@ if (isset($_SESSION['cart'])) {
                         <input type="text" class="form-control" id="pincode" name="pincode" required>
                     </div>
 
-                </div>
 
-
-                <div class="d-flex flex-row justify-content-between">
-                    <div class="payment-select-container">
-                        <select class="form-select payment-select">
-                            <option selected>Select Payment method</option>
-                            <option value="1">Cash on Delivery (CoD)</option>
-                            <option value="2">Net Banking</option>
-                            <option value="3">UPI/QR Payment</option>
-                            <option value="4">Credit/Debit Card Payment</option>
-                        </select>
+                    <div class="col mb-3">
+                        <div class="payment-select-container">
+                            <select class="form-select payment-select">
+                                <option selected>Select Payment method</option>
+                                <option value="1">Cash on Delivery (CoD)</option>
+                                <option value="2">Net Banking</option>
+                                <option value="3">UPI/QR Payment</option>
+                                <option value="4">Credit/Debit Card Payment</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <input type="submit" class="btn btn-primary" value="Place Order">
+                    <div class="col">
+                        <input type="submit" class="col btn btn-primary" value="Place Order">
+                    </div>
                 </div>
-                
-            </form>
 
+            </form>
         </div>
 
-        <div class="container col-4 bg-body-tertiary p-5 rounded">
-            <h3 class="fw-semibold">Order Summary</h3>
+        <div class="container col col-lg-4 bg-body-tertiary p-5 rounded">
+            <h3 class="fw-semibold mb-3">Order Summary</h3>
             <div class="row">
                 <table class="table table-bordered p-3 rounded">
                     <thead>

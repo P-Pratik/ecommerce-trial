@@ -20,6 +20,13 @@ body {
   position: relative;
 }
 
+@media screen and (max-width: 768px) {
+  .container1 {
+    width: 100%;
+  }
+
+}
+
 .container1::before {
   content: "";
   position: absolute;
@@ -36,7 +43,6 @@ body {
   h1 {
     text-align: center;
     margin-bottom: 30px;
-    text-decoration: underline;
     color: #fff;
   }
   

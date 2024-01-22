@@ -32,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
   <link rel="stylesheet" href="styles/signup.css">
-  <!-- Bootstrap CSS -->
 </head>
 
 <body>
@@ -56,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <div class="d-flex flex-row justify-content-center">
     <div class="container1">
-      <h1>Sign Up</h1>
+      <h1 class="h3 fw-normal mb-3">Sign Up</h1>
       <div class="d-flex flex-row justify-content-center">
         <form id="Form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
           <div class="form-group">
@@ -87,5 +86,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

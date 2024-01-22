@@ -55,28 +55,28 @@ include('partials/_nav.php');
         <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2  row-cols-1 g-5">
             <div class="col">
                 <div class="card">
-                    <img src="https://yamaha.ndcdn.in/media/catalog/product/cache/9e0f31af0cdc06df956748b13dabad87/f/s/fsc_ta_rr_5.jpg" class="card-img-top" alt="Instrument1">
+                    <img src="https://yamaha.ndcdn.in/media/catalog/product/cache/9e0f31af0cdc06df956748b13dabad87/y/d/ydp-105r-01-basic_withoutbench.jpeg" class="card-img-top" alt="Instrument1">
                     <div class="card-body">
-                        <h5 class="card-title fs-4">Yamaha FSC-TA Ruby Red Acoustic Guitar</h5>
-                        <p class="card-text fs-5 text-success">₹22,490.00</p>
+                        <h5 class="card-title fs-4">Yamaha YDP-105 Arius Digital Piano</h5>
+                        <p class="card-text fs-5 text-success">₹89,080.00</p>
                         <form action="cart_handler.php" method="post">
                             <button type="submit" name="additem" class="btn btn-primary">Add to cart</button>
-                            <input type="hidden" name="itemName" value="Yamaha FSC-TA Ruby Red Acoustic Guitar">
-                            <input type="hidden" name="price" value="22490">
+                            <input type="hidden" name="itemName" value="Yamaha YDP-105 Arius Digital Piano">
+                            <input type="hidden" name="price" value="89080">
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="https://m.media-amazon.com/images/I/51I019jm4wL.jpg" class="card-img-top" alt="Instrument1">
+                    <img src="https://yamaha.ndcdn.in/media/catalog/product/cache/9e0f31af0cdc06df956748b13dabad87/g/a/ga15iih.jpg" class="card-img-top" alt="Instrument2">
                     <div class="card-body">
-                        <h5 class="card-title fs-4">Ibanez Bass Guitar SR series Standard 6 string</h5>
-                        <p class="card-text fs-5 text-success">₹44,390.00</p>
+                        <h5 class="card-title fs-4">Yamaha GA15II Guitar Amplifer</h5>
+                        <p class="card-text fs-5 text-success">₹7,590.00</p>
                         <form action="cart_handler.php" method="post">
                             <button type="submit" name="additem" class="btn btn-primary">Add to cart</button>
-                            <input type="hidden" name="itemName" value="Ibanez Bass Guitar SR series Standard 6 string">
-                            <input type="hidden" name="price" value="44390">
+                            <input type="hidden" name="itemName" value="Yamaha GA15II Guitar Amplifer">
+                            <input type="hidden" name="price" value="7590">
                         </form>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ include('partials/_nav.php');
             </div>
             <div class="col">
                 <div class="card">
-                    <img src="https://m.media-amazon.com/images/I/51MXyutGxIL._SL1000_.jpg" class="card-img-top" alt="Instrument1">
+                    <img src="https://m.media-amazon.com/images/I/51MXyutGxIL._SL1000_.jpg" class="card-img-top" alt="Instrument4">
                     <div class="card-body">
                         <h5 class="card-title fs-4">Yamaha DAC-TF Black Keyboard</h5>
                         <p class="card-text fs-5 text-success">₹15,540.00</p>
@@ -105,6 +105,37 @@ include('partials/_nav.php');
                             <button type="submit" name="additem" class="btn btn-primary">Add to cart</button>
                             <input type="hidden" name="itemName" value="Yamaha DAC-TF Black Keyboard">
                             <input type="hidden" name="price" value="15540">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="https://yamaha.ndcdn.in/media/catalog/product/cache/9e0f31af0cdc06df956748b13dabad87/p/-/p-32d-_1_.jpg" class="card-img-top" alt="Instrument5">
+                    <div class="card-body">
+                        <h5 class="card-title fs-4">Yamaha P-32D Pianica 32-Note Melodica</h5>
+                        <p class="card-text fs-5 text-success">₹5,590.00</p>
+                        <form action="cart_handler.php" method="post">
+                            <button type="submit" name="additem" class="btn btn-primary">Add to cart</button>
+                            <input type="hidden" name="itemName" value="Yamaha P-32D Pianica 32-Note Melodica">
+                            <input type="hidden" name="price" value="5590">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="card">
+                    <img src="https://yamaha.ndcdn.in/media/catalog/product/cache/9e0f31af0cdc06df956748b13dabad87/d/t/dtx402k-1.jpg" class="card-img-top" alt="Instrument4">
+                    <div class="card-body">
+                        <h5 class="card-title fs-4">Yamaha DTX-402K Electronic Drum</h5>
+                        <p class="card-text fs-5 text-success">₹52,990.00</p>
+                        <form action="cart_handler.php" method="post">
+                            <button type="submit" name="additem" class="btn btn-primary">Add to cart</button>
+                            <input type="hidden" name="itemName" value="Yamaha DTX-402K Electronic Drum">
+                            <input type="hidden" name="price" value="52990">
                         </form>
                     </div>
                 </div>
