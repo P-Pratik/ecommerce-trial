@@ -53,6 +53,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                     <tbody class="text-center">
                         <?php
                         if (isset($_SESSION['cart'])) {
+
                             foreach ($_SESSION['cart'] as $key => $value) {
                                 ?>
                                 <tr>
@@ -76,7 +77,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                                     </td>
                                 </tr>
                                 <?php
+                                
                             }
+                            
                         }
                         ?>
                     </tbody>
@@ -112,6 +115,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 
         subTotal();
     </script>
+    <div class="d-flex flex-column justify-content-end">
+        <?php require 'partials/_footer.php'; ?>
+    </div>
 </body>
 
 </html>
