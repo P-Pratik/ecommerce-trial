@@ -8,7 +8,7 @@ $navbarContent = '
             <div class="d-flex flex-row justify-content-start">
                 <img src="https://i.imgur.com/RV41OkU.png" height="45px">
                 <div class="d-flex flex-column justify-content-end">
-                    <strong><h5>Music Masti</h5></strong>
+                    <h5 class="nav-title">Music Masti</h5>
                 </div>
             </div>
         </a>
@@ -33,6 +33,9 @@ if (!$loggedin) {
 
 if ($loggedin) {
     $navbarContent .= '
+                <li class="nav-item">
+                    <a class="nav-link" href="/ecomweb/your_orders.php">Your Orders</a>
+                </li>
             </ul>
             <button onclick="openCart()" class="nav-btn d-flex">
                 <img src="https://i.imgur.com/T8pAlYu.png" height="30px">
@@ -69,6 +72,7 @@ $navbarContent .= '</div>
 
 <head>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
       .navbar {
           padding: 15px;
           color: #fff;
@@ -104,6 +108,10 @@ $navbarContent .= '</div>
           background-color: #ffffff31;
       }
 
+      .nav-title{
+        font-family: "Bree Serif";
+      }
+
       .user-img {
           margin-right: 10px; 
       }
@@ -116,16 +124,12 @@ $navbarContent .= '</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Get the current URL path
             var path = window.location.pathname;
 
-            // Extract the last part of the path (filename)
             var page = path.split("/").pop();
 
-            // Select the corresponding navbar item based on the current page
             var activeNavItem = document.querySelector('a[href="/ecomweb/' + page + '"]');
 
-            // Add the "active" class to the selected navbar item
             if (activeNavItem) {
                 activeNavItem.classList.add('active');
             }
