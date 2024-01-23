@@ -70,7 +70,7 @@ $items = json_decode(file_get_contents($jsonFile), true);
             </div>
         <?php endforeach; ?>
     </div>
-
+    <?php require 'partials/_footer.php'; ?>
 </body>
 
 </html>
