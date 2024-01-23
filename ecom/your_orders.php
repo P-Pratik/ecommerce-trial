@@ -69,6 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_arrived'])) {
         </div>
     <?php endif; ?>
 
+    <div class="d-flex flex-column justify-content-end">
+            <?php require 'partials/_footer.php'; ?>
+    </div>
 </body>
 
 </html>
