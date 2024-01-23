@@ -19,7 +19,20 @@ $navbarContent = '
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/ecomweb/welcome.php">Home</a>
-                </li>';
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/ecomweb/about_us.php">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/ecomweb/contact_us.php">Contact Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/ecomweb/services.php">Services</a>
+                </li>
+                ';
 
 if (!$loggedin) {
     $navbarContent .= '
