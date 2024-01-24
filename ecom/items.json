@@ -2,6 +2,7 @@
     {
         "item-pic":"https://www.stars-music.fr/medias/yamaha/fsc-ta-transacoustic-cutaway-epicea-acajou-rw-600-184862.jpg",
         "item-name": "Yamaha FSC-TA Ruby Red Acoustic Guitar",
+        "item-id": 101,
         "item-price": 62490,
         "item-color": "Ruby Red",
         "item-info":{
@@ -17,6 +18,7 @@
     {
         "item-pic": "https://m.media-amazon.com/images/I/51I019jm4wL.jpg",
         "item-name": "Ibanez Bass Guitar SR series Standard 6 string",
+        "item-id": 102,
         "item-price": 44390,
         "item-color": "Weathered Black",
         "item-info": {
@@ -32,6 +34,7 @@
     {
         "item-pic":"https://m.media-amazon.com/images/I/61kSImd1LsL._SL1500_.jpg",
         "item-name": "Kadence Acoustic Begginers Drum Kit with Cymbals",
+        "item-id": 103,
         "item-price": 32620,
         "item-color": "Black",
         "item-info":{
@@ -46,6 +49,7 @@
     {
         "item-pic": "https://m.media-amazon.com/images/I/51MXyutGxIL._SL1000_.jpg",
         "item-name": "YAMAHA PSR-E373 61-Keys Portable Keyboard",
+        "item-id": 104,
         "item-price": 15540,
         "item-color": "Black",
         "item-info": {
