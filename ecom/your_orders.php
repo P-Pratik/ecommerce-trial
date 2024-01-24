@@ -1,27 +1,15 @@
 <?php
 session_start();
+require 'partials/_dbconnect.php';
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     header('Location: login.php');
     exit();
 }
 
-$jsonFile = 'cart_data.json';
-$cartData = json_decode(file_get_contents($jsonFile), true);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_arrived'])) {
-    $itemNameToRemove = $_POST['item_name'];
-    foreach ($cartData as $key => $item) {
-        if ($item['item_name'] === $itemNameToRemove) {
-            unset($cartData[$key]);
-            break;
-        }
-    }
-    file_put_contents($jsonFile, json_encode($cartData));
-
-    header('Location: ' . $_SERVER['PHP_SELF']);
-    exit();
-}
+$userEmail = $_SESSION['Email'];
+$sql = "SELECT * FROM orders WHERE email = '$userEmail'";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -33,35 +21,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_arrived'])) {
 
     <title>Your Orders</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/your_orders.css?v=<?php echo time(); ?>">
 </head>
 
-<body class="body-prop">
+<body class="body-prop bg-navy">
     <?php require 'partials/_nav.php'?>
     <div class="d-flex flex-row justify-content-center my-4">
         <h1 class="orders-text">Your Orders</h1>
     </div>
 
-    <?php if (!empty($cartData)) : ?>
-        <div class='card-container d-flex flex-row justify-content-around'>
-            <?php foreach ($cartData as $item) : ?>
-                <div class="item-card text-center">
-                    <img src="<?php echo $item['item_pic']; ?>" class="item-img">
-                    <div class="item-info">
-                        <br>
-                        <h6 class="h6-text"><?php echo $item['item_name']; ?></h6>
-                        <p class="quantity-text">Quantity: <?php echo $item['item_quantity']; ?></p>
-                        <p class="money-text">Total Price: ₹<?php echo $item['item_price'] * $item['item_quantity']; ?></p>
-                        <p>Arriving in a few days</p>
-                        
-                        <form method="post" class="mt-2">
-                            <button type="submit" name="order_arrived" class="btn btn-success">Order Arrived</button>
-                            <input type='hidden' name='item_name' value='<?php echo $item['item_name']; ?>'>
-                        </form>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+    <?php if ($result->num_rows > 0) : ?>
+        <div class="ex-padding d-flex flex-row justify-content-center">
+            <table class="table table-responsive table-border table-bordered table-striped table-dark table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th>Item Image</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th>Arrival Status</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <?php
+                    while ($row = $result->fetch_assoc()) :
+                        $orderItems = json_decode($row['items'], true);
+
+                        foreach ($orderItems as $orderItem) :
+                    ?>
+                            <tr>
+                                <td><img src="<?php echo $orderItem['item_pic']; ?>" alt="Item Image" class="cart-img"></td>
+                                <td><?php echo $orderItem['item_name']; ?></td>
+                                <td><?php echo $orderItem['item_quantity']; ?></td>
+                                <td>₹<?php echo $orderItem['item_price']; ?></td>
+                                <td>₹<?php echo $orderItem['item_price'] * $orderItem['item_quantity']; ?></td>
+                                <td>Arriving in a few days</td>
+                            </tr>
+                    <?php
+                        endforeach;
+                    endwhile;
+                    ?>
+                </tbody>
+            </table>
         </div>
     <?php else : ?>
         <div class="d-flex justify-content-center mt-4">
@@ -69,9 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_arrived'])) {
         </div>
     <?php endif; ?>
 
-    <div class="d-flex flex-column justify-content-end">
-            <?php require 'partials/_footer.php'; ?>
-    </div>
 </body>
 
 </html>
