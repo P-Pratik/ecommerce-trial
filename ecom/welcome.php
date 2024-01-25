@@ -7,6 +7,7 @@ include('partials/_nav.php');
 ?>
 
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
