@@ -1,158 +1,116 @@
 <?php
-$loggedin = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true;
-
-$navbarContent = '
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/ecomweb/">
-            <div class="d-flex flex-row justify-content-start">
-                <img src="https://i.imgur.com/RV41OkU.png" height="45px">
-                <div class="d-flex flex-column justify-content-end">
-                    <h5 class="nav-title">Music Masti</h5>
-                </div>
-            </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/ecomweb/welcome.php">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/ecomweb/about_us.php">About Us</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/ecomweb/contact_us.php">Contact Us</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/ecomweb/services.php">Services</a>
-                </li>
-                ';
-
-if (!$loggedin) {
-    $navbarContent .= '
-                <li class="nav-item">
-                    <a class="nav-link" href="/ecomweb/login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ecomweb/signup.php">Sign Up</a>
-                </li>';
+session_start();
+// print_r($_SESSION);
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  $loggedin = true;
+} else {
+  $loggedin = false;
 }
-
-if ($loggedin) {
-    $navbarContent .= '
-                <li class="nav-item">
-                    <a class="nav-link" href="/ecomweb/your_orders.php">Your Orders</a>
-                </li>
-            </ul>
-            <button onclick="openCart()" class="nav-btn d-flex">
-                <img src="https://i.imgur.com/T8pAlYu.png" height="30px">
-                <div class="d-flex flex-column justify-content-center">
-                    <strong>';
-    $navbarContent .= isset($_SESSION['count']) ? $_SESSION['count'] : 0;
-    $navbarContent .= '</strong>
-                </div>
-            </button>
-            <div class="dropdown">
-                <button class="nav-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="d-flex align-items-center dropdown-toggle">
-                        <img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" height="30px" class="user-img">
-                        <div class="d-flex flex-column justify-content-center">
-                            <strong>';
-    $navbarContent .= $_SESSION['Name'];
-    $navbarContent .= '</strong>
-                        </div>
-                    </div>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="/ecomweb/logout.php">Logout</a></li>
-                </ul>
-            </div>
-        ';
+$itemcount = 0;
+if (isset($_SESSION['cart'])) {
+  $itemcount = count($_SESSION['cart']);
 }
-$navbarContent .= '</div>
-    </div>
-</nav>';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
-      .navbar {
-          padding: 15px;
-          color: #fff;
-      }
-
-      .user {
-          border: #C3C4C5 2px solid;
-          border-radius: 8px;
-          padding: 8px;
-      }
-
-      img {
-          margin-right: 8px;
-      }
-
-      h5 {
-          font-size: 28px;
-      }
-
-      .nav-btn {
-          border: #C3C4C5 2px solid;
-          border-radius: 8px;
-          padding: 8px;
-          color: #fff;
-          margin: 20px;
-          margin-top: 0;
-          margin-bottom: 0;
-          font-weight: bold;
-          background-color: transparent;
-      }
-
-      .nav-btn:hover {
-          background-color: #ffffff31;
-      }
-
-      .nav-title{
-        font-family: "Bree Serif";
-      }
-
-      .user-img {
-          margin-right: 10px; 
-      }
-
-  </style>
-    <?php echo $navbarContent; ?>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Masti</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
+<style>
+  .navbar {
+    padding: 15px;
+  }
 
-<body>
+  .user,
+  .cart {
+    border: #C3C4C5 2px solid;
+    border-radius: 8px;
+    padding: 8px;
+    height: 50px;
+  }
+  img {
+    margin-right: 8px;
+  }
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var path = window.location.pathname;
+  h5 {
+    font-size: 28px;
+  }
+</style>
+<body data-bs-theme="dark">
 
-            var page = path.split("/").pop();
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <div class="d-flex flex-row justify-content-start">
+          <img src="https://i.imgur.com/RV41OkU.png" height="45px">
+          <div class="d-flex flex-column justify-content-end">
+            <strong>
+              <h5>Music Masti</h5>
+            </strong>
+          </div>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            var activeNavItem = document.querySelector('a[href="/ecomweb/' + page + '"]');
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/website/ecom-website/ecom/welcome.php">Home</a>
+          </li>
 
-            if (activeNavItem) {
-                activeNavItem.classList.add('active');
-            }
-        });
+        <?php if (!$loggedin) : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="/website/ecom-website/ecom/login.php">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/website/ecom-website/ecom/signup.php">Sign Up</a>
+          </li>
+        </ul>
 
-        function openCart() {
-            window.location.assign('cart.php');
-        }
-    </script>
+        <?php else : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="/website/ecom-website/ecom/logout.php">Logout</a>
+          </li>
+        </ul>
 
+        <div class="cart me-4 p-2 px-4 d-flex">
+          <a href="/website/ecom-website/ecom/cart.php" class="carttext text-decoration-none text-light d-flex justify-content-center align-items-center">
+            My Cart <span class="ms-2 mt-1 badge bg-secondary d-flex justify-content-center"><?php echo $itemcount ?></span>
+          </a>
+        </div>
+        <div class="user d-flex">
+          <img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" height="30px">
+          <div class="d-flex flex-column justify-content-center">
+            <strong>
+              <?php echo $_SESSION['Name']; ?>
+            </strong>
+          </div>
+        </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
-</html>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    var activeNavItem = document.querySelector('a[href="/website/ecom-website/ecom/' + page + '"]');
+    if (activeNavItem) {
+      activeNavItem.classList.add('active');
+    }
+  });
+</script>

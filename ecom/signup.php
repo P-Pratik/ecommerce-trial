@@ -1,4 +1,6 @@
 <?php
+include('partials/_nav.php');
+
 $showAlert = false;
 $showError = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $showError = "This Email is already Registered.";
   } else {
     if ($Passwrd == $CPasswrd) {
-      $sql = "INSERT INTO `users` (`Name`, `Email`, `Passwrd`, `dt`) VALUES ('$Name', '$Email', '$Passwrd', current_timestamp());";
+      $sql = "INSERT INTO users (`Name`, `Email`, `Passwrd`, `dt`) VALUES ('$Name', '$Email', '$Passwrd', current_timestamp());";
       $result = mysqli_query($conn, $sql);
       if ($result == true) {
         $showAlert = true;
@@ -29,17 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-  <title>Sign Up</title>
   <link rel="stylesheet" href="styles/signup.css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-  <?php require 'partials/_nav.php' ?>
-
   <?php
   if ($showAlert) {
     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -60,10 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <div class="d-flex flex-row justify-content-center">
     <div class="container1">
-      <h1>Sign Up</h1>
+      <h1 class="h3 fw-normal mb-3">Sign Up</h1>
       <div class="d-flex flex-row justify-content-center">
-        <!-- Sign-Up Form -->
-        <form id="Form" action="/ecomweb/signup.php" method="post">
+        <form id="Form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
           <div class="form-group">
             <label for="signupName">Full Name:</label>
             <input type="text" maxlength="50" id="Name" name="Name" required>
@@ -92,5 +86,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
