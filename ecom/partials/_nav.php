@@ -59,26 +59,30 @@ if (isset($_SESSION['cart'])) {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/website/ecom-website/ecom/welcome.php">Home</a>
+            <a class="nav-link" aria-current="page" href="welcome.php">Home</a>
           </li>
 
         <?php if (!$loggedin) : ?>
           <li class="nav-item">
-            <a class="nav-link" href="/website/ecom-website/ecom/login.php">Login</a>
+            <a class="nav-link" href="login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/website/ecom-website/ecom/signup.php">Sign Up</a>
+            <a class="nav-link" href="signup.php">Sign Up</a>
           </li>
         </ul>
 
         <?php else : ?>
           <li class="nav-item">
-            <a class="nav-link" href="/website/ecom-website/ecom/logout.php">Logout</a>
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact_us.php">Contact Us</a>
           </li>
         </ul>
 
         <div class="cart me-4 p-2 px-4 d-flex">
-          <a href="/website/ecom-website/ecom/cart.php" class="carttext text-decoration-none text-light d-flex justify-content-center align-items-center">
+          <a href="cart.php" class="carttext text-decoration-none text-light d-flex justify-content-center align-items-center">
             My Cart <span class="ms-2 mt-1 badge bg-secondary d-flex justify-content-center"><?php echo $itemcount ?></span>
           </a>
         </div>
@@ -108,7 +112,7 @@ if (isset($_SESSION['cart'])) {
   document.addEventListener("DOMContentLoaded", function() {
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    var activeNavItem = document.querySelector('a[href="/website/ecom-website/ecom/' + page + '"]');
+    var activeNavItem = document.querySelector('a[href="' + page + '"]');
     if (activeNavItem) {
       activeNavItem.classList.add('active');
     }

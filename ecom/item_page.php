@@ -5,7 +5,6 @@ if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
     exit();
 }
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the submitted data from the form
     $itemPic = $_POST['item-pic'];

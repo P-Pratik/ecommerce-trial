@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php require 'partials/_nav.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +17,6 @@ session_start();
 </head>
 
 <body class="body-prop">
-    <?php require 'partials/_nav.php'?>
 
     <div class="container mt-5 bg-dark padded-container">
         <div class="row">
@@ -75,7 +72,7 @@ session_start();
         </div>
     </div>
     <div class="d-flex flex-column justify-content-end">
-        <?php require 'partials/_footer.php'; ?>
+        <?php require 'partials/footer.php'; ?>
     </div>
 </body>
 

@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php require 'partials/_nav.php'?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,17 +7,10 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Welcome</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/about_us.css?v=<?php echo time(); ?>">
+    
 </head>
 
 <body class="body-prop">
-    <?php require 'partials/_nav.php'?>
 
     <div class="container mt-5 bg-dark padded-container">
         <div class="row">
@@ -69,7 +60,7 @@ session_start();
         </div>
     </div>
     <div class="d-flex flex-column justify-content-end">
-        <?php require 'partials/_footer.php'; ?>
+        <?php require 'partials/footer.php'; ?>
     </div>
 </body>
 

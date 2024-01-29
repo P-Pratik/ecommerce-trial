@@ -2,18 +2,10 @@
 include('partials/_nav.php');
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-</head>
-
 <body>
-
-
     <div class="container py-5" style="height: 75vh;"> 
         <div class="row">
             <div class="col-md-12 text-center pt-5">
