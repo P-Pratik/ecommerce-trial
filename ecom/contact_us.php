@@ -25,7 +25,7 @@
                 <p>
                     Our dedicated customer support team is ready to assist you with any inquiries or concerns. You can
                     contact them via email at <a href="mailto:support@yourcompany.com">support@yourcompany.com</a> or
-                    call our toll-free number at 1-800-123-4567.
+                    call our toll-free number at 1-800-XXX-XXXX.
                 </p>
 
                 <h4 class="mt-4">Social Media</h4>

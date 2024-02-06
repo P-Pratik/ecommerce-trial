@@ -61,7 +61,7 @@ include('partials/_dbconnect.php');
             }
 
             if (isset($result)) {
-                foreach ($result as $row) { ?>
+                foreach ($result as $row) { ?> 
 
                     <div class="col">
                         <div class="card">
@@ -74,6 +74,11 @@ include('partials/_dbconnect.php');
                                     <button type="submit" name="additem" class="btn btn-primary">Add to cart</button>
                                     <input type="hidden" name="itemName" value= "<?php echo $row['name'] ?>">
                                     <input type="hidden" name="price" value="<?php echo $row['price'] ?>">
+                                </form>
+
+                                <form action="item_page.php" method="get">
+                                    <button class="btn btn-outline-primary">Details</button>
+                                    <input type="hidden" name="itemID" value="<?php echo $row['product_id'] ?>">
                                 </form>
                             </div>
                         </div>

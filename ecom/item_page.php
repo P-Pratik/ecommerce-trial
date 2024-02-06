@@ -1,56 +1,43 @@
 <?php
-session_start();
-if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!=true){
-    header('Location: login.php');
-    exit();
-}
+require 'partials/_dbconnect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the submitted data from the form
-    $itemPic = $_POST['item-pic'];
-    $itemName = $_POST['item-name'];
-    $itemPrice = $_POST['item-price'];
-    $itemQuantity = 1;
-
-    // Load the JSON data from the file
-    $jsonData = file_get_contents('items.json');
-
-    // Decode the JSON data into an associative array
-    $items = json_decode($jsonData, true);
-
-    // Find the item in the array
-    $selectedItem = null;
-    foreach ($items as $item) {
-        if ($item['item-name'] == $itemName && $item['item-price'] == $itemPrice) {
-            $selectedItem = $item;
-            break;
-        }
-    }
-
-    if ($selectedItem) {
-        // Display the stored information about the item
-        $itemInfo = $selectedItem['item-info'];
-    } else {
-        // Redirect to the home page if the item is not found
-        header('Location: welcome.php');
-        exit();
-    }
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $itemID = $_GET['itemID'];
 } else {
-    // Redirect to the home page if the form is not submitted
-    header('Location: welcome.php');
+    header("Location: welcome.php");
     exit();
 }
+
+try {
+    $sql = "SELECT * FROM `product` WHERE `product_id` = '$itemID'";
+    $result = mysqli_query($conn, $sql);
+
+    if (!$result) {
+        throw new Exception(mysqli_error($conn));
+    }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+if (isset($result)) {
+    foreach ($result as $row) {
+        $itemName = $row['name'];
+        $itemPic = $row['imglink'];
+        $itemPrice = $row['price'];
+        $description = $row['info'];
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $itemName; ?> Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/item_page.css?v=<?php echo time(); ?>">
 </head>
+
 <body>
     <?php require 'partials/_nav.php'; ?>
 
@@ -64,32 +51,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card-body">
                         <h2 class="card-title"><?php echo $itemName; ?></h2>
                         <p class="money-text">₹<?php echo number_format($itemPrice, 2); ?></p>
-                        <form action="manage_cart.php" method="POST">
-                            <button type="submit" name="add_to_cart" class="btn btn-success">+ Add to Cart</button>
-                            <input type="hidden" name="item_name" value="<?php echo $itemName; ?>">
-                            <input type="hidden" name="item_price" value="<?php echo $itemPrice; ?>">
-                            <input type="hidden" name="item_pic" value="<?php echo $itemPic; ?>">
-                            <input type="hidden" name="item_quantity" value="<?php echo $itemQuantity; ?>">
+                        <p class="card-text"><?php echo $description; ?></p>    
+
+
+                        <form action="cart_handler.php" method="POST">
+                            <button type="submit" name="additem" class="btn btn-success">+ Add to Cart</button>
+                            <input type="hidden" name="itemName" value="<?php echo $itemName; ?>">
+                            <input type="hidden" name="price" value="<?php echo $itemPrice; ?>">
                         </form>
-                        <div class="card-info">
-                            <h6>Item Info</h6>
-                            <ul>
-                                <li><p class="card-text"><?php echo $itemInfo['p1']; ?></p></li>
-                                <li><p class="card-text"><?php echo $itemInfo['p2']; ?></p></li>
-                                <li><p class="card-text"><?php echo $itemInfo['p3']; ?></p></li>
-                                <li><p class="card-text"><?php echo $itemInfo['p4']; ?></p></li>
-                            </ul>
-                        </div>
+                        <br>
+                        <a href="welcome.php" class="btn btn-outline-primary">Back to shop</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <div class="d-flex flex-column justify-content-end">
-        <?php require 'partials/_footer.php'; ?>
+        <?php require 'partials/footer.php'; ?>
     </div>
-    </body>
-</html>
+</body>
 
+</html>
